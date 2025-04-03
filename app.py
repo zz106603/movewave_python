@@ -32,7 +32,7 @@ def predict():
         score = result[0]['score']
 
         if score < threshold:
-            emotion = "중립 (애매함)"
+            emotion = "중립"
         else:
             emotion = label_map[label]
 
