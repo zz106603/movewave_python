@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: movewave-python
+  namespace: movewave
+  labels:
+    app: movewave-python
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: movewave-python
+  template:
+    metadata:
+      labels:
+        app: movewave-python
+    spec:
+      containers:
+      - name: movewave-python
+        image: yunhwan95/movewave_python:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
+        env:
+        - name: TZ
+          value: "Asia/Seoul"
